@@ -1,6 +1,6 @@
 # Dealer Google Time Zone
 
-Uou must install and activate the first unit Dealer
+Uou must install and activate the first unit [Dealer](https://github.com/thelia-modules/Dealer)
 
 This module add a Timezone field
 
