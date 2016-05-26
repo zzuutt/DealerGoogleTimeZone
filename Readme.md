@@ -100,8 +100,10 @@ identical to the loop 'deale_-schedules' of module dealer but with the datetime_
 ```
 {loop type="dealer-googletimezone" name="dealer_googletimezone_loop" dealer_id=1}
     {loop type="dealer-googletimezone-schedules" name="dealer_googletimezone_schedules_loop" datetime_dealer=£DATETIME hide_past=true max_period='30' dealer_id=1}
-        TimeZone : {$TIMEZONE}
-        DateTime : {$DATETIME}
+        'day': '{$DAY}'
+        'day_label': '{$DAY_LABEL}'
+        'begin':'{format_date date=$BEGIN output="time"}'
+        'end':'{format_date date=$END output="time"}'
         ...
     {/loop}
 {/loop}
