@@ -1,0 +1,60 @@
+<script>
+    $(function () {
+        {if $googletimezoneapi_key == ''}
+            removeClassAlert();
+            $('#dealer-googletimezone-info').addClass('alert-warning').html("{intl l='DealerGoogleTimeZone is not set. To use this feature you must enter the key.' d='dealergoogletimezone.bo.default'}");
+            $('#dealer-googletimezone-get').prop('disabled', true);
+        {else}
+            {if $dealer_lat == 0 && $dealer_lng == 0}
+                removeClassAlert();
+                $('#dealer-googletimezone-info').addClass('alert-warning').html("{intl l='The location is undefined!' d='dealergoogletimezone.bo.default'}");
+                $('#dealer-googletimezone-get').prop('disabled', true);
+            {else}
+                $('#dealer-googletimezone-info').addClass('alert-info').html("{intl l='Click on <strong>Get the time zone</strong> or enter the value' d='dealergoogletimezone.bo.default'}");
+            {/if}
+        {/if}
+        $('#dealer-googletimezone-get').on("click",function(){
+            var link="https://maps.googleapis.com/maps/api/timezone/json";
+            var time = Date.now()/1000|0;
+            removeClassAlert();
+            $('#dealer-googletimezone-info').addClass('alert-warning').html("{intl l='<strong>Get the time zone...</strong>' d='dealergoogletimezone.bo.default'}");
+
+            $.getJSON(
+                link,
+                {
+                    location:"{$dealer_lat},{$dealer_lng}",
+                    timestamp: time,
+                    key : '{$googletimezoneapi_key}'
+                }
+            )
+                .done(
+                    function(json){
+                        console.log(json);
+                        if(json.status != 'OK'){
+                            removeClassAlert();
+                            $('#dealer-googletimezone-info').addClass('alert-danger').html(json.status);
+                        }
+                        else{
+                            $('#dealer_googletimezone_timezone').val(json.timeZoneId);
+                            removeClassAlert();
+                            $('#dealer-googletimezone-info').addClass('alert-success').html(json.status);
+                        }
+                }
+            )
+                .fail(
+                    function(jqxhr, textStatus, error ) {
+                        var err = textStatus + ", " + error;
+                        removeClassAlert();
+                        $('#dealer-googletimezone-info').addClass('alert-danger').html("{intl l='Request failed:' d='dealergoogletimezone.bo.default'}" + err);
+                    }
+            )
+
+        });
+    });
+
+    function removeClassAlert(){
+        $('#dealer-googletimezone-info').removeClass (function (index, css) {
+            return (css.match (/(^|\s)alert-\S+/g) || []).join(' ');
+        });
+    }
+</script>

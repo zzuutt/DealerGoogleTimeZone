@@ -1,0 +1,109 @@
+{assign var="dealer_id" value="{$smarty.get.dealer_id}"}
+<div id="wrapper" class="container">
+    {if $general_error}
+    <div class="alert alert-danger">
+        {$general_error}
+    </div>
+    {/if}
+
+    <!-- Timezone -->
+    <div class="general-block-decorator">
+        <div class="row">
+
+            <div class="col-md-12 title title-without-tabs">
+                {intl l='Get the time zone'}
+            </div>
+
+            <div class="form-container">
+                <div class="col-md-12">
+                    {ifloop rel="dealer_googletimezone_update"}
+
+                    {form name="dealer_googletimezone.update"}
+
+                    <form method="POST" action="{url path="/admin/module/DealerGoogleTimeZone/dealer_googletimezone/edit"}" {form_enctype form=$form} class="clearfix" >
+                        {loop name="dealer_googletimezone_update" type="dealer-googletimezone" backend_context="yes" dealer_id={$dealer_id} lang=$edit_language_id limit='1'}
+                        {form_field form=$form field="id"}
+                        {assign "dealer_googletimezone_id" $value}
+                        <input type="hidden" name="{$name}" value="{$ID}"/>
+                        {/form_field}
+                        {render_form_field form=$form field="success_url" value={$success_url|default:{url path="/admin/module/Dealer/dealer/edit?dealer_id={$dealer_id}#dealergoogletimezone"}}}
+                        {form_hidden_fields form=$form}
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                {form_field form=$form field="dealer_id"}
+                                    <input type="hidden" class="form-control" name="{$name}" id="{$label_attr.for}" value="{$DEALER_ID}" placeholder="{intl l='The DealerGoogletimezone dealer_id'}"/>
+                                {/form_field}
+                                {form_field form=$form field="timezone"}
+                                <div class="form-group">
+                                    <label class="control-label" for="{$label_attr.for}">
+                                        {$label}
+                                        {if $required}<span class="required">*</span>{/if}
+                                    </label>
+
+                                    {form_error form=$form field="timezone"}{$message}{/form_error}
+
+                                    <input type="text" class="form-control" name="{$name}" id="{$label_attr.for}"
+                                           value="{$TIMEZONE}" placeholder="{intl l='The DealerGoogletimezone timezone'}"/>
+                                </div>
+                                {/form_field}
+                            </div>
+                            <div class="col-md-12">
+                                <div id="dealer-googletimezone-info" class="alert" role="alert"></div>
+                            </div>
+                        </div>
+                        {/loop}
+                        {loop name="auth-create" type="auth" role="ADMIN" resource="admin.dealer.geo" access="UPDATE" module="Dealer"}
+                        <button type="button" id="dealer-googletimezone-get" name="dealer_googletimezone_get" class="form-submit-button btn btn-sm btn-primary" title="{intl d='dealergoogletimezone.bo.default' l='Get the time zone'}">{intl d='dealergoogletimezone.bo.default' l='Get the time zone'}</button>
+                        <button type="submit" id="dealer-googletimezone-save" name="dealer_googletimezone_save" value="save" class="form-submit-button btn btn-sm btn-default" title="{intl d='dealergoogletimezone.bo.default' l='Save'}">{intl d='dealergoogletimezone.bo.default' l='Save'}</button>
+                        {/loop}
+                    </form>
+                    {/form}
+                    {/ifloop}
+                    {elseloop rel="dealer_googletimezone_update"}
+
+                    {form name="dealer_googletimezone.create"}
+                    <form method="POST" action="{url path="/admin/module/DealerGoogleTimeZone/dealer_googletimezone"}" {form_enctype form=$form} class="clearfix">
+                        {form_hidden_fields form=$form}
+
+                        {render_form_field form=$form field="success_url" value={$success_url|default:{url path="/admin/module/Dealer/dealer/edit?dealer_id={$dealer_id}#dealergoogletimezone"}}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                {form_field form=$form field="dealer_id"}
+                                    <input type="hidden" class="form-control" name="{$name}" id="{$label_attr.for}" value="{$dealer_id}" placeholder="{intl l='The DealerGoogletimezone dealer_id'}"/>
+                                {/form_field}
+
+                                {form_field form=$form field="timezone"}
+                                <div class="form-group">
+                                    <label class="control-label" for="{$label_attr.for}">
+                                        {$label}
+                                        {if $required}<span class="required">*</span>{/if}
+                                    </label>
+
+                                    {form_error form=$form field="timezone"}{$message}{/form_error}
+
+                                    <input type="text" class="form-control" name="{$name}" id="{$label_attr.for}" value="{$TIMEZONE}"
+                                           placeholder="{intl l='The DealerGoogletimezone timezone'}"/>
+                                </div>
+                                {/form_field}
+                            </div>
+                            <div class="col-md-12">
+                                <div id="dealer-googletimezone-info" class="alert" role="alert"></div>
+                            </div>
+                        </div>
+
+                        {loop name="auth-create" type="auth" role="ADMIN" resource="admin.dealer.geo" access="UPDATE" module="Dealer"}
+                        <button type="button" id="dealer-googletimezone-get" name="dealer_googletimezone_get" class="form-submit-button btn btn-sm btn-primary" title="{intl d='dealergoogletimezone.bo.default' l='Get the time zone'}">{intl d='dealergoogletimezone.bo.default' l='Get the time zone'}</button>
+                        <button type="submit" id="dealer-googletimezone-save" name="dealer_googletimezone_save" value="save" class="form-submit-button btn btn-sm btn-default" title="{intl d='dealergoogletimezone.bo.default' l='Save'}">{intl d='dealergoogletimezone.bo.default' l='Save'}</button>
+                        {/loop}
+
+                    </form>
+                    {/form}
+
+                    {/elseloop}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

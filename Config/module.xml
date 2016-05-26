@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://thelia.net/schema/dic/module"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://thelia.net/schema/dic/module http://thelia.net/schema/dic/module/module-2_2.xsd">
+    <fullnamespace>DealerGoogleTimeZone\DealerGoogleTimeZone</fullnamespace>
+    <descriptive locale="en_US">
+        <title>Dealer - add TimeZone</title>
+
+        <subtitle></subtitle>
+        <description>Use Google Maps Time Zone API</description>
+        <postscriptum></postscriptum>
+
+    </descriptive>
+    <descriptive locale="fr_FR">
+        <title>Point de vente - Ajout fuseau horaire</title>
+        <description>utilise Google Maps Time Zone API pour déterminer le fuseau horaire</description>
+    </descriptive>
+    <!-- <logo></logo> -->
+    <!--<images-folder>images</images-folder>-->
+    <languages>
+        <language>en_US</language>
+        <language>fr_FR</language>
+    </languages>
+    <version>1.0</version>
+        <author>
+            <name>Zzuutt</name>
+            <email>zzuutt34@free.fr</email>
+        </author>
+    <type>classic</type>
+    <required>
+        <module version="&gt;=2.0">Dealer</module>
+    </required>
+
+    <thelia>2.2.0</thelia>
+    <stability>other</stability>
+</module>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://symfony.com/schema/routing" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+  <!--
+
+    if a /admin/module/dealergoogletimezone/ route is provided, a "Configuration" button will be displayed
+    for the module in the module list. Clicking this button will invoke this route.
+
+    <route id="my_route_id" path="/admin/module/dealergoogletimezone">
+        <default key="_controller">DealerGoogleTimeZone\Full\Class\Name\Of\YourConfigurationController::methodName</default>
+    </route>
+
+    <route id="my_route_id" path="/admin/module/dealergoogletimezone/route-name">
+        <default key="_controller">DealerGoogleTimeZone\Full\Class\Name\Of\YourAdminController::methodName</default>
+    </route>
+
+    <route id="my_route_id" path="/my/route/name">
+        <default key="_controller">DealerGoogleTimeZone\Full\Class\Name\Of\YourOtherController::methodName</default>
+    </route>
+
+    ...add as many routes as required.
+
+    <route>
+    ...
+    </route>
+    -->
+  <route id="dealergoogletimezone.config" path="/admin/module/dealergoogletimezone/configure" methods="post">
+    <default key="_controller">DealerGoogleTimeZone:Configure:configure</default>
+  </route>
+
+  <route id="dealergoogletimezone.dealer_googletimezone.list" path="/admin/module/DealerGoogleTimeZone/dealer_googletimezone" methods="get">
+    <default key="_controller">DealerGoogleTimeZone:DealerGoogletimezone:default</default>
+  </route>
+  <route id="dealergoogletimezone.dealer_googletimezone.create" path="/admin/module/DealerGoogleTimeZone/dealer_googletimezone" methods="post">
+    <default key="_controller">DealerGoogleTimeZone:DealerGoogletimezone:create</default>
+  </route>
+  <route id="dealergoogletimezone.dealer_googletimezone.view" path="/admin/module/DealerGoogleTimeZone/dealer_googletimezone/edit" methods="get">
+    <default key="_controller">DealerGoogleTimeZone:DealerGoogletimezone:update</default>
+  </route>
+  <route id="dealergoogletimezone.dealer_googletimezone.edit" path="/admin/module/DealerGoogleTimeZone/dealer_googletimezone/edit" methods="post">
+    <default key="_controller">DealerGoogleTimeZone:DealerGoogletimezone:processUpdate</default>
+  </route>
+  <route id="dealergoogletimezone.dealer_googletimezone.delete" path="/admin/module/DealerGoogleTimeZone/dealer_googletimezone/delete" methods="post">
+    <default key="_controller">DealerGoogleTimeZone:DealerGoogletimezone:delete</default>
+  </route>
+</routes>

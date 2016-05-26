@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database defaultIdMethod="native" name="thelia"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="../../../../core/vendor/propel/propel/resources/xsd/database.xsd" >
+
+    <table name="dealer_googletimezone" namespace="DealerGoogleTimeZone\Model">
+        <column autoIncrement="true" name="id" primaryKey="true" required="true" type="INTEGER"/>
+        <column name="dealer_id" required="true" type="INTEGER"/>
+        <column name="timezone" required="true" size="255" type="VARCHAR"/>
+
+        <foreign-key foreignTable="dealer" name="fk_dealer_googletimezone_dealer_id" onDelete="CASCADE" onUpdate="RESTRICT">
+            <reference foreign="id" local="dealer_id"/>
+        </foreign-key>
+
+        <behavior name="timestampable" />
+        <behavior name="versionable">
+            <parameter name="log_created_at" value="true" />
+            <parameter name="log_created_by" value="true" />
+        </behavior>
+
+    </table>
+
+    <external-schema filename="local/modules/Dealer/Config/schema.xml" referenceOnly="true" />
+</database>
