@@ -20,7 +20,9 @@ useful to determine if it is open
 ## Usage
 
 Enter your API key 
+
 There is a link on the configuration page to page Google TimeZone API
+
 an additional tab appears in the dealer module.
 
 
