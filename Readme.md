@@ -62,4 +62,48 @@ an additional tab appears in the dealer module.
 {/loop}
 ```
 
+[dealer-googletimezone-schedules]
+
+identical to the loop 'deale_-schedules' of module dealer but with the datetime_dealer and max_period parameters in addition
+
+
+### Input arguments
+
+|Argument           |Description                                                |
+|---                |---                                                        |
+|**id**             | filter by id                                              |
+|**dealer_id**      | filter by dealer                                          |
+|**default_period** | filter by default schedule                                |
+|**day** 			| filter by day 		                                    |
+|**hide_past**      | true or false                                             |
+|**closed**         | filter by close schedule                                  |
+|**datetime_dealer**| DATETIME see the loop 'dealer_googletimezone'             |
+|**max_period**     | number of days                                            |
+|**order**          | order result by "id","id-reverse","day","day-reverse"		|
+
+
+### Output arguments
+
+|Variable       	|Description                |
+|---            	|---                        |
+|$ID            	| id                        |
+|$DEALER_ID    		| Associated Dealer id      |
+|$DAY    			| Day value     			|
+|$DAY_LABEL   		| Day label					|
+|$BEGIN 			| Schedules start 			|
+|$END    			| Schedules end 	 	    |
+|$PERIOD_BEGIN 		| Schedules period start	|
+|$PERIOD_END    	| Schedules period end		|
+
+### Exemple
+
+```
+{loop type="dealer-googletimezone" name="dealer_googletimezone_loop" dealer_id=1}
+    {loop type="dealer-googletimezone-schedules" name="dealer_googletimezone_schedules_loop" datetime_dealer=£DATETIME hide_past=true max_period='30' dealer_id=1}
+        TimeZone : {$TIMEZONE}
+        DateTime : {$DATETIME}
+        ...
+    {/loop}
+{/loop}
+```
 

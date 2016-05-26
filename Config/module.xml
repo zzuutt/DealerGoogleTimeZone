@@ -21,11 +21,13 @@
         <language>en_US</language>
         <language>fr_FR</language>
     </languages>
-    <version>1.0</version>
+    <version>1.1</version>
+    <authors>
         <author>
             <name>Zzuutt</name>
             <email>zzuutt34@free.fr</email>
         </author>
+    </authors>
     <type>classic</type>
     <required>
         <module version="&gt;=2.0">Dealer</module>

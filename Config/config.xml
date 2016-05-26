@@ -5,6 +5,7 @@
         <loop name="MySuperLoop" class="DealerGoogleTimeZone\Loop\MySuperLoop" />
         -->
     <loop name="dealer-googletimezone" class="DealerGoogleTimeZone\Loop\DealerGoogletimezone"/>
+    <loop name="dealer-googletimezone-schedules" class="DealerGoogleTimeZone\Loop\DealerGoogletimezoneSchedules"/>
   </loops>
   <forms>
     <!--
