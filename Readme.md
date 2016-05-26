@@ -44,11 +44,11 @@ an additional tab appears in the dealer module.
 |$ID                | id |
 |$DEALER_ID         | dealer_id |
 |TIMEZONE           | timezone |
-|DATETIME           | datetime format:'Y-m-d H:i:s' if the timezone is set or else return null|
-|DAY_OF_THE_WEEK    | numeric representation of the day of the week  0 (for Monday) through 6 (for Sunday)|
-|DIFF_WITH_GMT      | Difference to Greenwich time (GMT) with colon between hours and minutes |
-|SUMMER_TIME_ACTIVED| Whether or not the date is in daylight saving time |
-
+|DATETIME           | datetime format:'Y-m-d H:i:s' *|
+|DAY_OF_THE_WEEK    | numeric representation of the day of the week  0 (for Monday) through 6 (for Sunday) *|
+|DIFF_WITH_GMT      | Difference to Greenwich time (GMT) with colon between hours and minutes *|
+|SUMMER_TIME_ACTIVED| Whether or not the date is in daylight saving time *|
+* if the timezone is set or else return null
 ### Exemple
 
 ```
