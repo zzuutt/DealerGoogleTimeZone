@@ -3,9 +3,11 @@
 Uou must install and activate the first unit Dealer
 
 This module add a Timezone field
+
 It use the Google TimeZone API for determine the timezone of the dealer
 
 It provides the date and local time of the dealer
+
 useful to determine if it is open
 
 ## Installation
