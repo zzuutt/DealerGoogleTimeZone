@@ -77,7 +77,7 @@ identical to the loop 'deale_-schedules' of module dealer but with the datetime_
 |**day** 			| filter by day 		                                    |
 |**hide_past**      | true or false                                             |
 |**closed**         | filter by close schedule                                  |
-|**datetime_dealer**| DATETIME see the loop 'dealer_googletimezone'             |
+|**datetime_dealer**| DATETIME see the loop 'dealer-googletimezone'             |
 |**max_period**     | number of days                                            |
 |**order**          | order result by "id","id-reverse","day","day-reverse"		|
 
@@ -99,7 +99,7 @@ identical to the loop 'deale_-schedules' of module dealer but with the datetime_
 
 ```
 {loop type="dealer-googletimezone" name="dealer_googletimezone_loop" dealer_id=1}
-    {loop type="dealer-googletimezone-schedules" name="dealer_googletimezone_schedules_loop" datetime_dealer=£DATETIME hide_past=true max_period='30' dealer_id=1}
+    {loop type="dealer-googletimezone-schedules" name="dealer_googletimezone_schedules_loop" datetime_dealer=Â£DATETIME hide_past=true max_period='30' dealer_id=1}
         'day': '{$DAY}'
         'day_label': '{$DAY_LABEL}'
         'begin':'{format_date date=$BEGIN output="time"}'
